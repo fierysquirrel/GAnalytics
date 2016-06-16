@@ -4,7 +4,7 @@ package;
 Copyright (c) 2013, Hyperfiction
 All rights reserved.
 
-Update to Google Analytics V3 API and latest OpenFL API by Emiliano Angelini - Emibap
+Update to Google Analytics V4 API and latest OpenFL API by Henry Fernández - Fiery Squirrel (http://fierysquirrel.com/)
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -175,14 +175,15 @@ class GAnalytics {
 	}
 
 	/**
+	* TODO: This function is not implemented for Android 
 	* Track a social event
+	* 
 	*
 	* @public
 	* @param 	sSocial_network :Targetted social network ( String )
 	* @param 	sAction : Action ( String )
 	* @return	void
 	*/
-
 	static public function trackSocial( sSocial_network : String , sAction : String , sTarget : String ) : Void {
 		#if (android && openfl)
 			
@@ -192,6 +193,28 @@ class GAnalytics {
 		#elseif ios
 		
 		ganalytics_sendSocial(sSocial_network, sAction, sTarget);
+		
+		#end
+	}
+	
+	/**
+	* Enable advertising ID
+	* Enabling this functionality will allow you to get Demographics data: gender, age, etc.
+	*
+	* @public
+	* @return	void
+	*/
+
+	static public function enableAdvertisingId() : Void {
+		#if (android && openfl)
+		
+		if (ganalytics_enableAdvertisingId_jni == null) ganalytics_enableAdvertisingId_jni = JNI.createStaticMethod ("org.haxe.extension.GAnalytics", "enableAdvertisingId", "()V");
+		
+		ganalytics_enableAdvertisingId_jni();
+		
+		#elseif ios
+		
+		//ganalytics_sendScreenView(sScreen);
 		
 		#end
 	}
@@ -232,6 +255,8 @@ class GAnalytics {
 	private static var ganalytics_sendTiming_jni: Dynamic;
 	
 	private static var ganalytics_trackSocial_jni: Dynamic;
+	
+	private static var ganalytics_enableAdvertisingId_jni: Dynamic;
 	
 	#end
 	

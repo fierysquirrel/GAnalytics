@@ -3,8 +3,8 @@ GAnalytics
 A Google Analytics native extension for OpenFL
 -----------------------------
 
-This OpenFL native extension allows you to integrate Google Analytics ( v3.03 ) into your OpenFL application.
-The supported compilation targets are [iOS](https://developers.google.com/analytics/devguides/collection/ios/v3) & [Android](https://developers.google.com/analytics/devguides/collection/android/v3/)
+This OpenFL native extension allows you to integrate Google Analytics ( v4 ) into your OpenFL application.
+The supported compilation targets are [iOS](https://developers.google.com/analytics/devguides/collection/ios/v3) & [Android](https://developers.google.com/analytics/devguides/collection/android/v4/)
 
 Installation
 ------------
