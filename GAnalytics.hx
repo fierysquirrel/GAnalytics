@@ -214,7 +214,7 @@ class GAnalytics {
 		
 		#elseif ios
 		
-		//ganalytics_sendScreenView(sScreen);
+		ganalytics_enableAdvertisingId();
 		
 		#end
 	}
@@ -241,6 +241,8 @@ class GAnalytics {
 	private static var ganalytics_setCustom_metric = Lib.load ("ganalytics", "ganalytics_setCustom_metric", 2);
 	
 	private static var ganalytics_sendSocial = Lib.load ("ganalytics", "ganalytics_sendSocial", 3);
+	
+	private static var ganalytics_enableAdvertisingId = Lib.load ("ganalytics", "ganalytics_enableAdvertisingId", 0);
 	
 	#end
 	

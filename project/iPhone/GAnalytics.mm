@@ -49,6 +49,12 @@ namespace ganalytics {
            value:NS_Val];
 		
 	}
+	
+	void enableAdvertisingId()
+	{
+		// Enable Advertising Features.
+		tracker.allowIDFACollection = YES;	
+	}
 
 	void setCustom_metric( int iIndex , int iMetric ){
 		//NSLog( @"setCustom_metric index:%i metrid:%i",iIndex,iMetric);
